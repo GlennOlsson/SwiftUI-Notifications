@@ -22,8 +22,5 @@ let package = Package(
         .target(
             name: "Notifications",
             dependencies: []),
-        .testTarget(
-            name: "NotificationsTests",
-            dependencies: ["Notifications"]),
     ]
 )

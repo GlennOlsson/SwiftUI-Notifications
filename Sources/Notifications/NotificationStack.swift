@@ -28,7 +28,7 @@ struct NotificationStack<Content: View>: View {
 	}
 	
 	func removeNotification(notification: NotificationModel) {
-		notificationContext.notifications.removeAll(where: {$0.id == notification.id})
+		notificationContext.removeNotification(id: notification.id)
 	}
 	
     var body: some View {

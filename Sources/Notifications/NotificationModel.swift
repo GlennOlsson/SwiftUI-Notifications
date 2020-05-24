@@ -21,15 +21,26 @@ struct NotificationModel {
 	
 	var content: () -> AnyView
 	
-	init(text: String, type: NotificationType) {
+	/**
+	- Parameters:
+	    - type : The notification type to be associated with the notification
+	    - text: The text the notification will display
+	*/
+	init(type: NotificationType, text: String) {
 		self.content = { AnyView(Text(text)) }
 		self.type = type
 		self.id = UUID()
 	}
 	
-	init<Content: View>(type: NotificationType, @ViewBuilder content: @escaping () -> Content) {
-		self.content = { AnyView(content()) }
+	/**
+	- parameters:
+	    - type : The notification type to be associated with the notification
+	    - content: The closure will be called with the id of the notification
+	*/
+	init<Content: View>(type: NotificationType, @ViewBuilder content: @escaping (UUID) -> Content) {
 		self.type = type
-		self.id = UUID()
+		let id = UUID()
+		self.id = id
+		self.content = { AnyView(content(id)) }
 	}
 }

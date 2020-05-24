@@ -1,3 +1,6 @@
-# Notifications
+# Simple notification SwiftUI library for iOS
 
-A description of this package.
+A very simple way of showing notifications too your users wherever they are in the app.
+Requires iOS 13 or above
+
+
